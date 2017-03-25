@@ -97,6 +97,7 @@ export default class DispatcherHistoryLastweek extends React.Component {
   constructor() {
     super();
     this.state = {
+      loading: true,
       dispatcherTrackingSorted: [ ],
     };
   }
@@ -113,25 +114,32 @@ export default class DispatcherHistoryLastweek extends React.Component {
       cache: false,
       success: function(data, status, req) {
         const dhSorted = _.sortBy(data, 'datetime_start').reverse();
-        this.setState({dispatcherTrackingSorted: dhSorted});
+        this.setState({
+          dispatcherTrackingSorted: dhSorted,
+          loading: false,
+        });
       }.bind(this),
       error: function(xhr, status, err) {
+        this.setState({
+          loading: false,
+        });
         console.error(process.env.API_BASEURI + '/dispatcher-history/lastweek', status, err.toString());
       }.bind(this)
     });
   }
 
   render() {
-    if (this.state.dispatcherTrackingSorted) {
+    if (! this.state.loading) {
       return (
         <div class="row">
-          <h3>Latest dispatchers</h3>
+          <h3>Latest dispatchers <small>last 14 days</small></h3>
           <DispatcherHistoryList list={this.state.dispatcherTrackingSorted}/>
         </div>
       )
     } else {
       return (
         <div class="row">
+          <h3>Latest dispatchers <small>last 14 days</small></h3>
           <p className="text-center">Loading...</p>
         </div>
       )
@@ -144,6 +152,7 @@ export default class DispatcherHistorySummary extends React.Component {
   constructor() {
     super();
     this.state = {
+      loading: true,
       dispatcherTrackingSorted: [ ],
     };
   }
@@ -161,25 +170,32 @@ export default class DispatcherHistorySummary extends React.Component {
       success: function(data, status, req) {
         var dhSorted = _.sortBy(data, 'total_minutes').reverse();
         console.log(dhSorted);
-        this.setState({dispatcherTrackingSorted: dhSorted});
+        this.setState({
+          dispatcherTrackingSorted: dhSorted,
+          loading: false,
+        });
       }.bind(this),
       error: function(xhr, status, err) {
+        this.setState({
+          loading: false,
+        });
         console.error(process.env.API_BASEURI + '/dispatcher-history/summary', status, err.toString());
       }.bind(this)
     });
   }
 
   render() {
-    if (this.state.dispatcherTrackingSorted) {
+    if (! this.state.loading) {
       return (
         <div class="row">
-          <h3>Latest dispatchers summary</h3>
+          <h3>Latest dispatchers summary <small>last 14 days</small></h3>
           <DispatcherSummaryList list={this.state.dispatcherTrackingSorted}/>
         </div>
       )
     } else {
       return (
         <div class="row">
+          <h3>Latest dispatchers summary <small>last 14 days</small></h3>
           <p className="text-center">Loading...</p>
         </div>
       )
@@ -206,12 +222,8 @@ export default class DispatcherHistory extends React.Component {
     return (
       <div class="row">
         <h1>Dispatcher History</h1>
-        <ul class="nav nav-tabs">
-          <li role="presentation" class="active">Last Week</li>
-          <li role="presentation" >Profile</li>
-        </ul>
-        <DispatcherHistoryLastweek/>
         <DispatcherHistorySummary/>
+        <DispatcherHistoryLastweek/>
       </div>
     )
   }

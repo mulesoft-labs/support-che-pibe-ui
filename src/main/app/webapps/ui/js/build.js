@@ -350,6 +350,7 @@ var DispatcherHistoryLastweek = function (_React$Component5) {
     var _this5 = _possibleConstructorReturn(this, Object.getPrototypeOf(DispatcherHistoryLastweek).call(this));
 
     _this5.state = {
+      loading: true,
       dispatcherTrackingSorted: []
     };
     return _this5;
@@ -369,9 +370,15 @@ var DispatcherHistoryLastweek = function (_React$Component5) {
         cache: false,
         success: function (data, status, req) {
           var dhSorted = _lodash2.default.sortBy(data, 'datetime_start').reverse();
-          this.setState({ dispatcherTrackingSorted: dhSorted });
+          this.setState({
+            dispatcherTrackingSorted: dhSorted,
+            loading: false
+          });
         }.bind(this),
         error: function (xhr, status, err) {
+          this.setState({
+            loading: false
+          });
           console.error("http://support-che-pibe-api.cloudhub.io/api" + '/dispatcher-history/lastweek', status, err.toString());
         }.bind(this)
       });
@@ -379,14 +386,19 @@ var DispatcherHistoryLastweek = function (_React$Component5) {
   }, {
     key: 'render',
     value: function render() {
-      if (this.state.dispatcherTrackingSorted) {
+      if (!this.state.loading) {
         return _react2.default.createElement(
           'div',
           { className: 'row' },
           _react2.default.createElement(
             'h3',
             null,
-            'Latest dispatchers'
+            'Latest dispatchers ',
+            _react2.default.createElement(
+              'small',
+              null,
+              'last 14 days'
+            )
           ),
           _react2.default.createElement(DispatcherHistoryList, { list: this.state.dispatcherTrackingSorted })
         );
@@ -394,6 +406,16 @@ var DispatcherHistoryLastweek = function (_React$Component5) {
         return _react2.default.createElement(
           'div',
           { className: 'row' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Latest dispatchers ',
+            _react2.default.createElement(
+              'small',
+              null,
+              'last 14 days'
+            )
+          ),
           _react2.default.createElement(
             'p',
             { className: 'text-center' },
@@ -418,6 +440,7 @@ var DispatcherHistorySummary = function (_React$Component6) {
     var _this6 = _possibleConstructorReturn(this, Object.getPrototypeOf(DispatcherHistorySummary).call(this));
 
     _this6.state = {
+      loading: true,
       dispatcherTrackingSorted: []
     };
     return _this6;
@@ -438,9 +461,15 @@ var DispatcherHistorySummary = function (_React$Component6) {
         success: function (data, status, req) {
           var dhSorted = _lodash2.default.sortBy(data, 'total_minutes').reverse();
           console.log(dhSorted);
-          this.setState({ dispatcherTrackingSorted: dhSorted });
+          this.setState({
+            dispatcherTrackingSorted: dhSorted,
+            loading: false
+          });
         }.bind(this),
         error: function (xhr, status, err) {
+          this.setState({
+            loading: false
+          });
           console.error("http://support-che-pibe-api.cloudhub.io/api" + '/dispatcher-history/summary', status, err.toString());
         }.bind(this)
       });
@@ -448,14 +477,19 @@ var DispatcherHistorySummary = function (_React$Component6) {
   }, {
     key: 'render',
     value: function render() {
-      if (this.state.dispatcherTrackingSorted) {
+      if (!this.state.loading) {
         return _react2.default.createElement(
           'div',
           { className: 'row' },
           _react2.default.createElement(
             'h3',
             null,
-            'Latest dispatchers summary'
+            'Latest dispatchers summary ',
+            _react2.default.createElement(
+              'small',
+              null,
+              'last 14 days'
+            )
           ),
           _react2.default.createElement(DispatcherSummaryList, { list: this.state.dispatcherTrackingSorted })
         );
@@ -463,6 +497,16 @@ var DispatcherHistorySummary = function (_React$Component6) {
         return _react2.default.createElement(
           'div',
           { className: 'row' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Latest dispatchers summary ',
+            _react2.default.createElement(
+              'small',
+              null,
+              'last 14 days'
+            )
+          ),
           _react2.default.createElement(
             'p',
             { className: 'text-center' },
@@ -509,22 +553,8 @@ var DispatcherHistory = function (_React$Component7) {
           null,
           'Dispatcher History'
         ),
-        _react2.default.createElement(
-          'ul',
-          { className: 'nav nav-tabs' },
-          _react2.default.createElement(
-            'li',
-            { role: 'presentation', className: 'active' },
-            'Last Week'
-          ),
-          _react2.default.createElement(
-            'li',
-            { role: 'presentation' },
-            'Profile'
-          )
-        ),
-        _react2.default.createElement(DispatcherHistoryLastweek, null),
-        _react2.default.createElement(DispatcherHistorySummary, null)
+        _react2.default.createElement(DispatcherHistorySummary, null),
+        _react2.default.createElement(DispatcherHistoryLastweek, null)
       );
     }
   }]);
@@ -1347,20 +1377,6 @@ module.exports = {
     if (!googleOAuth2.isSignedIn.get()) {
       googleOAuth2.signIn().then(function () {
         var profile = googleOAuth2.currentUser.get().getBasicProfile();
-        // $.post(process.env.AUTH_BASEURI + '/authorize', {
-        //     email: profile.getEmail(),
-        //     googleid: profile.getId(),
-        // }, function(data) {
-        //   const user = {
-        //     id: profile.getId(),
-        //     realname: profile.getName(),
-        //     imageUrl: profile.getImageUrl(),
-        //     email: profile.getEmail(),
-        //     jwt: data,
-        //   };
-        //   localStorage.token = data;
-        //   if (cb) cb(user);
-        // }, 'json');
         $.ajax({
           type: "POST",
           url: "http://support-che-pibe-api.cloudhub.io" + '/authorize',
