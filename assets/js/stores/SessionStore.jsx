@@ -1,6 +1,7 @@
 import { EventEmitter } from "events";
 
 import dispatcher from "../dispatcher.jsx";
+import jwt from "jsonwebtoken";
 
 class SessionStore extends EventEmitter {
   constructor() {
@@ -18,7 +19,19 @@ class SessionStore extends EventEmitter {
   }
 
   getUserName() {
-    return this.user;
+    return this.user.realname;
+  }
+
+  getRoles() {
+    return this.user.roles;
+  }
+
+  getSalesforceId() {
+    return this.user.salesforceuser;
+  }
+
+  getEmail() {
+    return this.user.email;
   }
 
   handleActions(action) {
@@ -26,11 +39,13 @@ class SessionStore extends EventEmitter {
       case "SESSION_LOGIN": {
         if (action.user) {
           this.loggedIn = true;
-          this.user = action.user;
+          let decoded = jwt.decode(action.user.jwt);
+          this.user = decoded;
         } else {
           this.loggedIn = false;
           this.user = {};
         }
+
         this.emit("user_change", this.user);
         break;
       }
