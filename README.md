@@ -9,6 +9,10 @@ mvn clean paclage
 ## Mule Application
 The Mule application is just exposing the static content generated in the folder src/main/resources/dist/ and controlling the caching http headers.
 
+### Compiling and deploy
+- mvn clean package
+- Go to the Support organization (Okta) and deploy it through Runtime Manager
+
 ## CSS/JS Support Console
 This includes the custom CSS/JS for Support Console to improve functionality and experience. The solution is a webpack script that builds the different parts for each support region
 
