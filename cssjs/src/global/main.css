@@ -1,276 +1,303 @@
 .efdRLHover > .listHoverLinks {
   visibility: hidden !important;
-  }
-  
-  .support-summary-container {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    background: #FFF29E;
-    padding: 10px;
-    color: #001F3F;
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .latam-summary-container {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    background: #FFF29E;
-    padding: 10px;
-    color: #001F3F;
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    z-index: 9;
-  }
-  
+}
+
+.support-summary-container {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #fff29e;
+  padding: 10px;
+  color: #001f3f;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.latam-summary-container {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #fff29e;
+  padding: 10px;
+  color: #001f3f;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 9;
+}
 
 .detailList #cas15_ileinner {
   font-size: 1.05rem;
 }
 
-  div[id$="_RelatedCommentsList_body"] .dataCell b a {
-      color: #fff;
-  }
-  
-  div[id$="_RelatedCommentsList_body"] .dataCell b {
-      margin: 0px 60px 0px 0px;
-      width: 98%;
-      display: block;
-      color: #fff;
-      line-height: 1rem;
-      height: 1.5rem;
-      padding-left: 1em;
-      letter-spacing: 1px;
-      font-size: 0.8rem;
-      font-weight: 100;
-          border-radius: 3px;	
-      background: linear-gradient(to right, rgb(29, 83, 146) 0%, rgba(125,185,232,1) 100%);
-  }
-  
-  div[id$="_RelatedCommentsList_body"] .dataCell {
-      position: relative;
-      padding: 0px 0px 1em 0;
-      font-size: 1rem;
-      font-family: Helvetica;
-      font-weight: 100;
-  }
-  
-  div[id$="_RelatedCommentsList_body"] .dataCell b::after {
-    content: counter(rowNumber);
-      padding-right: 10px;
-      width: 2em !important;
-      display: inline-block;
-      height: 2.3em;
-      padding: 3px 0 0 3px;
-      box-sizing: border-box;
-      background: #ffffff;
-      text-align: center;
-      font-family: 'SalesforceSans-Regular',Helvetica,Arial,sans-serif;
-      font-size: 1.1em;
-      color: #000000;
-      font-weight: normal;
-      border-radius: 0px 0px 10px 10px;
-      margin-left: 10px;
-      border: 1px solid rgba(0,0,0,.25);
-  }
-  
-  div[id$="_RelatedCommentsList_body"] .dataCell b::before {
+div[id$="_RelatedCommentsList_body"] .dataCell b a {
+  color: #fff;
+}
+
+div[id$="_RelatedCommentsList_body"] .dataCell b {
+  margin: 0px 60px 0px 0px;
+  width: 98%;
+  display: block;
+  color: #fff;
+  line-height: 1rem;
+  height: 1.5rem;
+  padding-left: 1em;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  font-weight: 100;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    rgb(29, 83, 146) 0%,
+    rgba(125, 185, 232, 1) 100%
+  );
+}
+
+div[id$="_RelatedCommentsList_body"] .dataCell {
+  position: relative;
+  padding: 0px 0px 1em 0;
+  font-size: 1rem;
+  font-family: Helvetica;
+  font-weight: 100;
+}
+
+div[id$="_RelatedCommentsList_body"] .dataCell b::after {
+  content: counter(rowNumber);
+  padding-right: 10px;
+  width: 2em !important;
+  display: inline-block;
+  height: 2.3em;
+  padding: 3px 0 0 3px;
+  box-sizing: border-box;
+  background: #ffffff;
+  text-align: center;
+  font-family: "SalesforceSans-Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.1em;
+  color: #000000;
+  font-weight: normal;
+  border-radius: 0px 0px 10px 10px;
+  margin-left: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+div[id$="_RelatedCommentsList_body"] .dataCell b::before {
   content: "";
-      width: 0;
-      height: 0;
-      box-sizing: border-box;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      border-right: 12px solid rgb(29, 83, 146);
-      position: absolute;
-      top: 1.3em;
-      left: 12px;
-      transform: rotate(-90deg);
-  }
-  
-  div[id$="_RelatedCommentsList_body"] .dataRow {
-    counter-increment: rowNumber;
-    vertical-align: top !important;
-  }
-  
-  div[id$="_RelatedCommentsList_body"] .dataRow {
-    counter-increment: rowNumber;
-    vertical-align: top !important;
-  }
-  
-  div[id$="_RelatedCommentsList_body"] .list {
-    counter-reset: rowNumber;
-  }
-  
-  .is-upload-comment {
-    color: #ccc !important;
-    position: relative;
-  }
-  
-  .is-upload-comment b {
-    color: #000;
-  }
-  .is-upload-comment div {
-      float: left;
-      padding: 0 10px;
-      background: #fff;
-      color: #000;
-      border: 1px solid #246cb4;
-      margin: 2.75em 10px 0 0;
-      border-radius: 10px;
-  }
-  
-  .is-upload-comment div:hover {
-      background: #246cb4;
-      color: #fff;
-      border: 1px solid #fff;
-  }
-  
-  .downloadLink {
-    border: 1px solid #d0d0d0;
-      text-decoration: none !important;
-      display: inline-block;
-      padding: 3px;
-      background: #eee;
-      margin: 5px 10px 5px -5px;
-      border-radius: 5px;
-  }
-  
-  #CommentBody {	
-      width: 100%;
-      height: 350px;
-  }
-  
-  .case-status-work-in-progress {
-      background-color: #a0ff42;
-  }
-  
-  .case-status-awaiting-internal-response {
-      font-weight: 800 !important;
-      color: #04BFBF !important;
-  }
-  
-  .breakRowClassBottom {
-      line-height: 1px;
+  width: 0;
+  height: 0;
+  box-sizing: border-box;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 12px solid rgb(29, 83, 146);
+  position: absolute;
+  top: 1.3em;
+  left: 12px;
+  transform: rotate(-90deg);
+}
+
+div[id$="_RelatedCommentsList_body"] .dataRow {
+  counter-increment: rowNumber;
+  vertical-align: top !important;
+}
+
+div[id$="_RelatedCommentsList_body"] .dataRow {
+  counter-increment: rowNumber;
+  vertical-align: top !important;
+}
+
+div[id$="_RelatedCommentsList_body"] .list {
+  counter-reset: rowNumber;
+}
+
+.is-upload-comment {
+  color: #ccc !important;
+  position: relative;
+}
+
+.is-upload-comment b {
+  color: #000;
+}
+.is-upload-comment div {
+  float: left;
+  padding: 0 10px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #246cb4;
+  margin: 2.75em 10px 0 0;
+  border-radius: 10px;
+}
+
+.is-upload-comment div:hover {
+  background: #246cb4;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.downloadLink {
+  border: 1px solid #d0d0d0;
+  text-decoration: none !important;
+  display: inline-block;
+  padding: 3px;
+  background: #eee;
+  margin: 5px 10px 5px -5px;
+  border-radius: 5px;
+}
+
+#CommentBody {
+  width: 100%;
+  height: 350px;
+}
+
+.case-status-work-in-progress {
+  background-color: #a0ff42;
+}
+
+.case-status-awaiting-internal-response {
+  font-weight: 800 !important;
+  color: #04bfbf !important;
+}
+
+.breakRowClassBottom {
+  line-height: 1px;
   background-color: #d5ddf37a !important;
-  }
-  
-  .caseLog .dataCell {
+}
+
+.caseLog .dataCell {
   padding: 0.5em 1em;
-  }
-  
-  .caseLog .align-right {
+}
+
+.caseLog .align-right {
   text-align: right;
-  }
-  
-  .caseLog .team-support {
-  background-color: #E0FFE2;
-  } 
-  
-  .caseLog .team-customer {
-  background-color: #C4ECFF;
-  } 
-  
-  .csat-container__body {
-    padding: 10px;
-  }
-  
-  .private-comment {
-    background-color: #FFF6D9;
-  }
-  
-  .private-comment .actionColumn {
-    border: 1px solid #EFDAA3 !important;
-    border-right: 0px !important;
-  }
-  
-  .private-comment .cellCol1 {
-    border: 1px solid #EFDAA3 !important;
-    border-right: 0px !important;
-    border-left: 0px !important;
-  }
-  
-  .private-comment .cellCol2 {
-    border: 1px solid #EFDAA3 !important;
-    border-left: 0px !important;
-  }
-  
-  .csat-container__body .csat-container__body__score {
-    display: flex;
-      margin-bottom: 0.5rem;
-    font-size: 1.2em;
-    align-items: center;
-  }
-  
-  .csat-container__body .csat-container__body__score .score {
-      font-weight: 100;
-      font-size: 2em;
-      border-radius: 1rem;
-      padding: 0.25em;
-      justify-content: center;
-      align-items: center;
-  }
-  
-  .csat-container__body .csat-container__body__score .comments {
-    display: inline-flex;
-      margin-left: 0.5em;
-      font-family: monospace;
-  }
-  
-  .csat-container__body .csat-container__body__question {
-    display: flex;
-      margin-bottom: 0.5rem;
-      align-items: center;
-  }
-  
-  .csat-container__body .csat-container__body__question .title {
-    display: inline-flex;
-      margin-left: 0.5em;
-  }
-  
-  .csat-container__body .csat-container__body__question .score {
-    display: inline-flex;
-      width: 2em;
-      height: 2em;
-      justify-content: center;
-      align-items: center;
-      border-radius: 30px;
-      font-weight: 100;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-  }
-  
-  .csat-container__body .csat-container__body__questions {
-    list-style: none;
-      padding: 0;
-  }
-  
-  .csat-container__body .csat-container__body__questions li {
-      margin-left: 0;
-  }
-  
-  .csat-container__body .score--1 {
-    background-color: #FA0000 !important;
-    color: #fff !important;
-  }
-  
-  .csat-container__body .score--2 {
-    background-color: #FF9B0F !important;
-    color: #001F3F !important;
-  }
-  .csat-container__body .score--3 {
-    background-color: #FFDC00 !important;
-    color: #111111 !important;
-  }
-  .csat-container__body .score--4 {
-    background-color: #39CCCC !important;
-    color: #001F3F !important;
-  }
-  .csat-container__body .score--5 {
-    background-color: #01FF70 !important;
-    color: #001F3F !important;
-  }
+}
+
+.caseLog .team-support {
+  background-color: #e0ffe2;
+}
+
+.caseLog .team-customer {
+  background-color: #c4ecff;
+}
+
+.csat-container__body {
+  padding: 10px;
+}
+
+.private-comment {
+  background-color: #fff6d9;
+}
+
+.private-comment .actionColumn {
+  border: 1px solid #efdaa3 !important;
+  border-right: 0px !important;
+}
+
+.private-comment .cellCol1 {
+  border: 1px solid #efdaa3 !important;
+  border-right: 0px !important;
+  border-left: 0px !important;
+}
+
+.private-comment .cellCol2 {
+  border: 1px solid #efdaa3 !important;
+  border-left: 0px !important;
+}
+
+.csat-container__body .csat-container__body__score {
+  display: flex;
+  margin-bottom: 0.5rem;
+  font-size: 1.2em;
+  align-items: center;
+}
+
+.csat-container__body .csat-container__body__score .score {
+  font-weight: 100;
+  font-size: 2em;
+  border-radius: 1rem;
+  padding: 0.25em;
+  justify-content: center;
+  align-items: center;
+}
+
+.csat-container__body .csat-container__body__score .comments {
+  display: inline-flex;
+  margin-left: 0.5em;
+  font-family: monospace;
+}
+
+.csat-container__body .csat-container__body__question {
+  display: flex;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+.csat-container__body .csat-container__body__question .title {
+  display: inline-flex;
+  margin-left: 0.5em;
+}
+
+.csat-container__body .csat-container__body__question .score {
+  display: inline-flex;
+  width: 2em;
+  height: 2em;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.csat-container__body .csat-container__body__questions {
+  list-style: none;
+  padding: 0;
+}
+
+.csat-container__body .csat-container__body__questions li {
+  margin-left: 0;
+}
+
+.csat-container__body .score--1 {
+  background-color: #fa0000 !important;
+  color: #fff !important;
+}
+
+.csat-container__body .score--2 {
+  background-color: #ff9b0f !important;
+  color: #001f3f !important;
+}
+.csat-container__body .score--3 {
+  background-color: #ffdc00 !important;
+  color: #111111 !important;
+}
+.csat-container__body .score--4 {
+  background-color: #39cccc !important;
+  color: #001f3f !important;
+}
+.csat-container__body .score--5 {
+  background-color: #01ff70 !important;
+  color: #001f3f !important;
+}
+
+.efodBody .bPageBlock .pbBody .pbSubheader {
+  border-radius: 10px 10px 0 0 !important;
+  border: 1px rgb(221, 219, 218) solid !important;
+  border-bottom: 0;
+  background-color: rgb(244, 246, 249) !important;
+}
+
+.efodBody .bPageBlock .pbBody .pbSubheader ~ .pbSubsection {
+  border-radius: 0 0 10px 10px;
+  border: 1px rgb(221, 219, 218) solid;
+  border-top: 0;
+}
+
+#head_01B3400000Q9phM_ep + .pbSubsection .detailList .last.labelCol {
+  display: none !important;
+}
+
+#head_01B3400000Q9phM_ep + .pbSubsection .detailList .last.data2Col {
+  font-size: 1.05rem;
+  margin: 1rem 0.5rem;
+  display: inline-block;
+  width: 98%;
+}

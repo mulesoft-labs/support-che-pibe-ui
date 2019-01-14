@@ -17,7 +17,7 @@ module.exports = function (env) {
     entry: './src/global/main.js',
     output: {
       filename: 'support-console-plus-' + env.region + '.min.js',
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, '../src/main/resources/dist'),
     },
     resolve: {
       plugins: [
