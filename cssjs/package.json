@@ -1,0 +1,30 @@
+{
+  "name": "support-console-js-css",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "npm run build-latam && npm run build-na && npm run build-emea && npm run build-apac",
+    "build-latam": "webpack --env.region=latam",
+    "build-na": "webpack --env.region=na",
+    "build-emea": "webpack --env.region=emea",
+    "build-apac": "webpack --env.region=apac"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.1.0",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-optional-plugin": "^1.1.0"
+  }
+}

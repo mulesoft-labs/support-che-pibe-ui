@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d3ecbb84-f260-4756-a4e2-2a28de8516b0" >
+		<http:listener-connection host="0.0.0.0" port="8082" protocol="HTTPS" >
+			<tls:context >
+				<tls:trust-store/>
+				<tls:key-store type="jks" path="httplistener.jks" keyPassword="mule123" password="mule123" alias="mulekey"/>
+			</tls:context>
+		</http:listener-connection>
+	</http:listener-config>
+	
+	<flow name="support-che-pibe-uiFlow" doc:id="1353e415-0723-4b0b-ab7d-d1f4b8dd20f4" >
+		<http:listener doc:name="Listener" doc:id="b6b412cd-a8ea-4449-bfc4-ed22990a7dcd" config-ref="HTTP_Listener_config" path="/static/*" allowedMethods="GET">
+			<non-repeatable-stream />
+			<http:response >
+				<http:headers ><![CDATA[#[output application/java
+---
+{
+	"Cache-Control" : "public, max-age=7200"
+}]]]></http:headers>
+			</http:response>
+		</http:listener>
+		<http:load-static-resource doc:name="Load static resource" doc:id="a4fa84ec-3c99-464b-a925-277d0a9ca79e" resourceBasePath="${app.home}/dist/"/>
+	</flow>
+	
+</mule>
