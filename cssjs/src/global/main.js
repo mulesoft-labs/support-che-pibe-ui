@@ -592,20 +592,6 @@ function sumAllCaseValues(aggr, ni) {
 	}
 }
 
-function removeNodesByClass(classname) {
-	var reportHeaders = document.getElementsByClassName(classname)
-	for (var i = reportHeaders.length - 1; i >= 0; i--) {
-		reportHeaders[i].parentNode.removeChild(reportHeaders[i]);
-	}	
-}
-
-function recurrentUpdate() {
-	reviewNextUpdate();
-	setTimeout(recurrentUpdate, 10000);
-}
-
-recurrentUpdate();
-
 /**
  * DISPATCHER TIMER -- START
  */
@@ -696,14 +682,16 @@ function runDispatchTimer() {
 	}
 }
 
-function updateDispatchTimer() {
+var timeoutID;
+
+function recurrentUpdate() {
+	if (timeoutID) {
+		window.clearTimeout(timeoutID);
+		timeoutID = null
+	}
+	reviewNextUpdate();
 	runDispatchTimer();
-	setTimeout(updateDispatchTimer, 10000);	
+	timeoutID = setTimeout(recurrentUpdate, 10000);
 }
 
-updateDispatchTimer()
-
-/**
- * DISPATCHER TIMER -- END
- */
-
+recurrentUpdate();

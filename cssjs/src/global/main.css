@@ -301,3 +301,34 @@ div[id$="_RelatedCommentsList_body"] .list {
   display: inline-block;
   width: 98%;
 }
+
+.reportTable .b-0 {
+  background-color: rgba(200,50,50,0);
+}
+.reportTable .b-1 {
+  background-color: rgba(200,50,50,0);
+}
+.reportTable .b-2 {
+  background-color: rgba(200,50,50,0.01);
+}
+.reportTable .b-3 {
+  background-color: rgba(200,50,50,0.02);
+}
+.reportTable .b-4 {
+  background-color: rgba(200,50,50,0.05);
+}
+.reportTable .b-5 {
+  background-color: rgba(200,50,50,0.14);
+}
+.reportTable .b-6 {
+  background-color: rgba(200,50,50,0.37);
+}
+.reportTable .b-7 {
+  background-color: rgba(200,50,50,0.99);
+}
+.reportTable .b-8 {
+  background-color: rgba(200,50,50,1);
+}
+.reportTable .b-9 {
+  background-color: rgba(200,50,50,1);
+}
