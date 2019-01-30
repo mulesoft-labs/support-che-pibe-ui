@@ -323,8 +323,12 @@ div[id$="_RelatedCommentsList_body"] .list {
 .reportTable .b-6 {
   background-color: rgba(200,50,50,0.37);
 }
-.reportTable .b-7 {
+.reportTable .b-7 td {
   background-color: rgba(200,50,50,0.99);
+  color: #fff;
+}
+.reportTable .b-7 a {
+  color: #fff;
 }
 .reportTable .b-8 {
   background-color: rgba(200,50,50,1);
