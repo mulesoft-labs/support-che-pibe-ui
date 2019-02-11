@@ -101,7 +101,9 @@ function updateLATAMQueueDefectsReport(reportBody) {
 							}
 							
 							// export function calculateCaseBurnout(severity, isEscalated, isAIR, dueDate, isDispatchComplete) {
-							currentCaseCounts.b = calculateCaseBurnout(severity, )
+							// currentCaseCounts.b = calculateCaseBurnout(severity, )
+
+							// currentCaseCounts.b = calculateCaseBurnout(severity, isEscalated, isAIR, nextUpdateDue, isDispatchComplete)
 						}
 					}
 				}

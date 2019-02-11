@@ -4,7 +4,7 @@ This application serves static content for UI and includes a service to control 
 ## To Start contributing:
 clone https://github.com/mulesoft-labs/support-che-pibe-ui.git
 cd support-che-pibe-ui
-mvn clean paclage
+mvn clean package
 
 ## Mule Application
 The Mule application is just exposing the static content generated in the folder src/main/resources/dist/ and controlling the caching http headers.
